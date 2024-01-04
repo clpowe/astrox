@@ -1,16 +1,61 @@
 ---
-
 ---
 
-<html lang="en">
+<html>
 	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>My page</title>
+		<script
+			src='https://unpkg.com/htmx.org@1.9.6'
+			integrity='sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni'
+			crossorigin='anonymous'></script>
 	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
 </html>
+<section class='container mx-auto px-4'>
+	<div class='overflow-x-auto'>
+		<form
+			method='POST'
+			class='flex flex-wrap items-end gap-4'
+			hx-post='/api/budget'
+			enctype='form-data'
+		>
+			<label class='flex flex-col' for='name'
+				>Name
+				<input
+					name='name'
+					type='text'
+					placeholder='Type here'
+					class='input input-bordered w-full max-w-xs'
+				/>
+			</label>
+			<label class='flex flex-col' for='amount'
+				>Amount
+				<input
+					name='amount'
+					type='text'
+					placeholder='Type here'
+					class='input input-bordered w-full max-w-xs'
+				/>
+			</label>
+			<button class='btn'>Normal</button>
+		</form>
+		<table class='table'>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Amount</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr
+					id='parent-div'
+					hx-post='/partials/clicked/'
+					hx-trigger='load'
+					hx-swap='outerHTML'
+				>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</section>
+
+<style></style>

@@ -1,0 +1,17 @@
+---
+import { GET } from '../items.json'
+let response = await GET(Astro)
+
+const data = await response.json()
+
+console.log(data)
+---
+
+{
+	data.budgets.map((budget) => (
+		<tr class='bg-base-200 '>
+			<td>{budget.name}</td>
+			<td>{budget.amount}</td>
+		</tr>
+	))
+}

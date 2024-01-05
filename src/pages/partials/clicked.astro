@@ -1,10 +1,10 @@
 ---
+export const partial = true
+
 import { GET } from '../items.json'
 let response = await GET(Astro)
 
 const data = await response.json()
-
-console.log(data)
 ---
 
 {

@@ -17,6 +17,7 @@
 			class='flex flex-wrap items-end gap-4'
 			hx-post='/api/budget'
 			enctype='form-data'
+			hx-swap='afterend'
 		>
 			<label class='flex flex-col' for='name'
 				>Name
@@ -45,15 +46,15 @@
 					<th>Amount</th>
 				</tr>
 			</thead>
-			<tbody>
-				<tr
-					id='parent-div'
-					hx-post='/partials/clicked/'
-					hx-trigger='load'
-					hx-swap='outerHTML'
-				>
-				</tr>
-			</tbody>
+			<tbody></tbody>
+			<tr
+				class='bg-base-200'
+				id='parent-div'
+				hx-post='/partials/clicked/'
+				hx-trigger='load'
+				hx-swap='outerHTML'
+			>
+			</tr>
 		</table>
 	</div>
 </section>
